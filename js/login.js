@@ -1,4 +1,6 @@
 var valRes = document.getElementById('val-res');
+valRes.style.padding = "2%";
+valRes.style.border = "2px solid red";
 valRes.style.visibility ="hidden";
 
 function Validations1() {
@@ -104,6 +106,7 @@ function Validations1() {
         var textP = document.createTextNode('Every validation has passed');
         newP.appendChild(textP);
         valRes.appendChild(newP);
+        valRes.style.border = "2px solid blue";
     }
 
     valRes.style.visibility ="visible";

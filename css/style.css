@@ -8,8 +8,7 @@ header {
     font-family:Arial, Helvetica, sans-serif;
 }
 main {
-    background-color: #FCAEB6;
-    padding: 1%;
+    padding: 1% 1% 4% 1%;
     font-family:Arial, Helvetica, sans-serif;
 }
 
@@ -29,10 +28,25 @@ h2 {
     justify-content: center;
 }
 
+a {
+    display: flex;
+    padding: 5% 5%;
+} 
+
+form {
+    padding: 2%;
+    border: 2px solid #80212B;
+}
+
+fieldset {
+    border: none;
+}
+
 button {
     margin: 1%;
     padding: 1%;
 }
+
 
 .btns {
     display: flex;
@@ -44,6 +58,10 @@ button {
     justify-content: space-around;
 }
 
+.imp {
+    display: flex;
+    flex-direction: column;
+}
 .val-res {
     padding: 1% 10%;
     border: 2px solid red;
