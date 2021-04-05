@@ -13,23 +13,26 @@
     </header>
     <main>
         <h2>Log in </h2>
-        <form>
-            <fieldset>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </fieldset>   
-            <fieldset>
-                <label for="pass">Password:</label>
-                <input type="password" id="pass" name="pass" required>
-            </fieldset>
-            </fieldset>    
-            <button type="submit" class="submit-btn" class="btns" id="submit">Log in</button>
-        </form>
-        <a href="register.html">You do not have an account? Sign up</a>
+        <div class ="container">
+            <form>
+                <fieldset>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </fieldset>   
+                <fieldset>
+                    <label for="pass">Password:</label>
+                    <input type="password" id="pass" name="pass" required>
+                </fieldset>
+                </fieldset>    
+                <button type="submit" class="submit-btn" class="btns" id="submit" onclick="Validations1()">Log in</button>
+            </form>
+            <div id="val-res">Verification Results:</div>
+        </div>
+        <a id="hrefok" href="register.html">You do not have an account? Sign up</a>
     </main>
     <footer>
         <div class="finfo">
-            <p>Copyright &copy;2020 Entertainment News. All Rights Reserved.
+            <p>Copyright &copy;2020 My APP. All Rights Reserved.
             </p>
         </div>
     </footer>  
