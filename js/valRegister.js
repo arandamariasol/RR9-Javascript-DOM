@@ -26,9 +26,17 @@ function Validations2 () {
         valRes.appendChild(new4);
         console.log(valRes);
         valRes.style.visibility ="visible";
+        getUsers();
+
     } else {
         console.log('NO pasó las validaciones nuevas')
     }
+}
+
+async function getUsers () {
+    fetch(`https://jsonplaceholder.typicode.com/users?email=${submitObject.femail}`)
+        .then(response => response.json())
+        .then(data => console.log(data));
 }
 
 // Nombre
