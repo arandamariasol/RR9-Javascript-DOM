@@ -2,10 +2,11 @@ var valRes = document.getElementById('val-res');
 valRes.style.padding = "2%";
 valRes.style.border = "2px solid red";
 valRes.style.visibility ="hidden";
+var validOk = 0;
 
-function Validations1() {
+submit.addEventListener('click', ValidationsLog);
 
-    // FORM EXISTE
+function valForm () {
     var form = document.getElementsByTagName('form');
 
     if (form.length == 0) {
@@ -16,10 +17,10 @@ function Validations1() {
         valRes.appendChild(newP);
     } else {
         console.log("Existe formulario");
-        var validOk = 1;
-    }
-
-    //CANTIDAD CAMPOS EXISTE
+        validOk = 1;
+}
+  
+function valInputsEx () {
     var inputs = document.getElementsByTagName('input');
 
     if (inputs.length != 2) {
@@ -30,27 +31,28 @@ function Validations1() {
         valRes.appendChild(newP);
     } else {
         console.log("Campos correctos");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     }
+}
 
-    //CAMPO REQUERIDO
-
+function valInputsReq () {
+    var inputs = document.getElementsByTagName('input');
+    
     for (var i = 0; i < inputs.length; i++) {
         if (inputs[i].hasAttribute('required') == true) {
             console.log("Campo requerido " + inputs[i].name + " ok");
-            var validOk = validOk + 1;
+            validOk = validOk + 1;
         } else {
             console.log("Campo requerido " + inputs[i].name + " incorrecto");
             var newP = document.createElement('p');
             var textP = document.createTextNode('The input ' + inputs[i].name + ' must be required');
             newP.appendChild(textP);
-            valRes.appendChild(newP);
+            valRes.appendChild(newP);            
         }
     }
-
+};
     
-
-    // LABEL REQUERIDO
+function valLabels () {
     var labels = document.getElementsByTagName('label');
 
     if (labels.length != 2) {
@@ -61,15 +63,16 @@ function Validations1() {
         valRes.appendChild(newP);
     } else {
         console.log("Cantidad de etiquetas correctas");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     };
+}
 
-    //BOTONES
+function valSubmit () {
     var btnsub = document.getElementById('submit');
 
     if (btnsub.textContent == "Log in") {
         console.log("Contenido botón Login correcto");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     } else {
         console.log("Contenido botón Login incorrecto");
         var newP = document.createElement('p');
@@ -77,11 +80,10 @@ function Validations1() {
         newP.appendChild(textP);
         valRes.appendChild(newP);
     };
-
-
+  
     if (btnsub.getAttribute('type') == "submit") {
         console.log("Tipo de botón Submit correcto");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     } else {
         console.log("Tipo de botón Submit incorrecto");
         var newP = document.createElement('p');
@@ -89,12 +91,14 @@ function Validations1() {
         newP.appendChild(textP);
         valRes.appendChild(newP);
     };
-
+}
+    
+function valAnchor () {
     var anchor = document.getElementById('hrefok');
     var hrefOk = anchor.getAttribute('href');
     if (hrefOk == "register.html") {
         console.log("Href asociado a anchor correcto");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     } else {
         console.log("Href asociado a anchor incorrecto");
         var newP = document.createElement('p');
@@ -102,7 +106,15 @@ function Validations1() {
         newP.appendChild(textP);
         valRes.appendChild(newP);
     }
- 
+}
+
+function ValidationsLog() {
+    valForm();
+    valInputsEx();
+    valInputsReq();      
+    valLabels();
+    valSubmit();
+    valAnchor();
     if (validOk == 8) {
         var newP = document.createElement('p');
         var textP = document.createTextNode('Every validation has passed');
@@ -110,6 +122,5 @@ function Validations1() {
         valRes.appendChild(newP);
         valRes.style.border = "2px solid blue";
     }
-
     valRes.style.visibility ="visible";
 }

@@ -49,7 +49,8 @@ function valInputsReq () {
             var newP = document.createElement('p');
             var textP = document.createTextNode('The input ' + inputs[i].name + ' must be required');
             newP.appendChild(textP);
-            valRes.appendChild(newP);            }
+            valRes.appendChild(newP);            
+        }
     }
 };
 

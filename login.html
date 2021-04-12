@@ -18,13 +18,15 @@
                 <fieldset>
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
+                    <p id="email-err">Error</p>
                 </fieldset>   
                 <fieldset>
                     <label for="pass">Password:</label>
                     <input type="password" id="pass" name="pass" required>
+                    <p id="pass-err">Error</p>
                 </fieldset>
                 </fieldset>    
-                <button type="submit" class="submit-btn" class="btns" id="submit" onclick="Validations1()">Log in</button>
+                <button type="submit" class="submit-btn" class="btns" id="submit">Log in</button>
             </form>
             <div id="val-res">Verification Results:</div>
         </div>
@@ -38,4 +40,5 @@
     </footer>  
 </body>
 <script src="./js/login.js"></script>
+<script src="./js/valLogin.js"></script>
 </html>
