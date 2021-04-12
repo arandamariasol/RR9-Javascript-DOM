@@ -130,7 +130,7 @@ function Validations1 () {
     valReset();
     if (validOk == 11) {
         var newP = document.createElement('p');
-        var textP = document.createTextNode('Every validation has passed');
+        var textP = document.createTextNode('Every form structure validation has passed');
         newP.appendChild(textP);
         valRes.appendChild(newP);
         valRes.style.border = "2px solid blue";

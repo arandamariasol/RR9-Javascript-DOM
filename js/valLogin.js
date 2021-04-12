@@ -7,7 +7,7 @@ function Validations2 () {
     event.preventDefault();
     var lgt = Object.keys(submitObject);
     if (lgt.length == 2) {
-        console.log('Pasó las validaciones nuevas');
+        console.log('Pasó las validaciones de campos del formulario');
         var new1 = document.createElement('p');
         var new2 = document.createElement('p');
         var text1 = document.createTextNode('The email is ' + submitObject.femail);
@@ -16,11 +16,10 @@ function Validations2 () {
         new2.appendChild(text2);
         valRes.appendChild(new1);
         valRes.appendChild(new2);
-        console.log(valRes);
         valRes.style.visibility ="visible";
         getUsers();
     } else {
-        console.log('NO pasó las validaciones nuevas')
+        console.log('NO pasó las validaciones de campos del formulario')
     }
 }
 
@@ -38,18 +37,15 @@ efemail.style.display = 'none';
 femail.addEventListener('blur',Femail);
 
 function Femail() {
-    console.log('se ejecuto',femail.value);
+    
     if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(femail.value)){
         console.log("email valido");
         submitObject.femail = femail.value;
-        console.log(submitObject);
-        return true;
     } else {
         console.log("email invalido");
         efemail.textContent = 'Invalid email format'
         efemail.style.display = 'block';
         femail.style.border= '2px solid red';
-        return false;
     }
 }
 
@@ -68,18 +64,15 @@ epass.style.display = 'none';
 pass.addEventListener('blur',Pass);
 
 function Pass() {
-    console.log('se ejecuto',pass.value);
+    
     if (pass.value.length >= 8 && /(?=\w*\d)(?=\w*[a-z])/.test(pass.value)) {
         console.log('contraseña valida');
         submitObject.Password = pass.value;
-        console.log(submitObject);
-        return true;
     } else {
         console.log('contraseña invalida');
         epass.textContent = 'Your password must contain at least 8 characters and it must content letters and numbers'
         epass.style.display = 'block';
         pass.style.border= '2px solid red';
-        return false;
     }
 }
 

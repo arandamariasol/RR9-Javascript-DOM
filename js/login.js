@@ -4,7 +4,7 @@ valRes.style.border = "2px solid red";
 valRes.style.visibility ="hidden";
 var validOk = 0;
 
-submit.addEventListener('click', ValidationsLog);
+submit.addEventListener('click', Validations1);
 
 function valForm () {
     var form = document.getElementsByTagName('form');
@@ -18,6 +18,7 @@ function valForm () {
     } else {
         console.log("Existe formulario");
         validOk = 1;
+    }
 }
   
 function valInputsEx () {
@@ -108,7 +109,7 @@ function valAnchor () {
     }
 }
 
-function ValidationsLog() {
+function Validations1() {
     valForm();
     valInputsEx();
     valInputsReq();      
@@ -117,7 +118,7 @@ function ValidationsLog() {
     valAnchor();
     if (validOk == 8) {
         var newP = document.createElement('p');
-        var textP = document.createTextNode('Every validation has passed');
+        var textP = document.createTextNode('Every form structure validation has passed');
         newP.appendChild(textP);
         valRes.appendChild(newP);
         valRes.style.border = "2px solid blue";
