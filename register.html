@@ -18,21 +18,25 @@
                 <fieldset>
                     <label for="fname">Full name:</label>
                     <input type="text" id="fname" name="Full name" required>
+                    <p id="name-err">Error</p>
                 </fieldset>
                 <fieldset>
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="Email" required>
+                    <p id="email-err">Error</p>
                 </fieldset>   
                 <fieldset>
                     <label for="pass">Password:</label>
                     <input type="password" id="pass" name="Password" required>
+                    <p id="pass-err">Error</p>
                 </fieldset>
                 <fieldset>
                     <label for="rpass">Confirm password:</label>
                     <input type="password" id="rpass" name="Confirm password" required>
+                    <p id="rpass-err">Error</p>
                 </fieldset>    
                 <div class="btns">
-                    <button type="submit" class="submit-btn" id="submit" onclick="Validations1()">Sign in</button>
+                    <button type="submit" class="submit-btn" id="submit">Sign in</button>
                     <button type="reset" class="reset-btn" id="reset">Reset</button>
                 </div>
             </form>
@@ -48,4 +52,5 @@
     </footer>  
 </body>
 <script src="./js/register.js"></script>
+<script src="./js/valRegister.js"></script>
 </html>

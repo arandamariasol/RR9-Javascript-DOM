@@ -2,10 +2,11 @@ var valRes = document.getElementById('val-res');
 valRes.style.padding = "2%";
 valRes.style.border = "2px solid red";
 valRes.style.visibility ="hidden";
+var validOk = 0;
 
-function Validations1() {
+submit.addEventListener('click', Validations1);
 
-    // FORM EXISTE
+function valForm () {
     var form = document.getElementsByTagName('form');
 
     if (form.length == 0) {
@@ -16,10 +17,12 @@ function Validations1() {
         valRes.appendChild(newP);
     } else {
         console.log("Existe formulario");
-        var validOk = 1;
+        validOk = 1;
     }
-
-    //CANTIDAD CAMPOS EXISTE
+    
+}
+ 
+function valInputsEx () {
     var inputs = document.getElementsByTagName('input');
 
     if (inputs.length != 4) {
@@ -30,25 +33,27 @@ function Validations1() {
         valRes.appendChild(newP);
     } else {
         console.log("Campos correctos");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     }
+}
 
-    //CAMPO REQUERIDO
-
+function valInputsReq () {
+    var inputs = document.getElementsByTagName('input');
+    
     for (var i = 0; i < inputs.length; i++) {
         if (inputs[i].hasAttribute('required') == true) {
             console.log("Campo requerido " + inputs[i].name + " ok");
-            var validOk = validOk + 1;
+            validOk = validOk + 1;
         } else {
             console.log("Campo requerido " + inputs[i].name + " incorrecto");
             var newP = document.createElement('p');
             var textP = document.createTextNode('The input ' + inputs[i].name + ' must be required');
             newP.appendChild(textP);
-            valRes.appendChild(newP);
-        }
+            valRes.appendChild(newP);            }
     }
+};
 
-    // LABEL REQUERIDO
+function valLabels () {
     var labels = document.getElementsByTagName('label');
 
     if (labels.length != 4) {
@@ -59,15 +64,16 @@ function Validations1() {
         valRes.appendChild(newP);
     } else {
         console.log("Cantidad de etiquetas correctas");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     };
+}
 
-    //BOTONES
+function valSubmit () {
     var btnsub = document.getElementById('submit');
 
     if (btnsub.textContent == "Sign in") {
         console.log("Contenido botón Submit correcto");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     } else {
         console.log("Contenido botón Submit incorrecto");
         var newP = document.createElement('p');
@@ -75,11 +81,10 @@ function Validations1() {
         newP.appendChild(textP);
         valRes.appendChild(newP);
     };
-
-
+  
     if (btnsub.getAttribute('type') == "submit") {
         console.log("Tipo de botón Submit correcto");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     } else {
         console.log("Tipo de botón Submit incorrecto");
         var newP = document.createElement('p');
@@ -87,12 +92,14 @@ function Validations1() {
         newP.appendChild(textP);
         valRes.appendChild(newP);
     };
-
+}
+    
+function valReset() {
     var btnres = document.getElementById('reset');
 
     if (btnres.textContent == "Reset") {
         console.log("Contenido botón Reset correcto");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     } else {
         console.log("Contenido botón Reset incorrecto");
         var newP = document.createElement('p');
@@ -103,7 +110,7 @@ function Validations1() {
 
     if (btnres.getAttribute('type') == "reset") {
         console.log("Tipo de botón Reset correcto");
-        var validOk = validOk + 1;
+        validOk = validOk + 1;
     } else {
         console.log("Tipo de botón Reset incorrecto");
         var newP = document.createElement('p');
@@ -111,7 +118,15 @@ function Validations1() {
         newP.appendChild(textP);
         valRes.appendChild(newP);
     }
+}
 
+function Validations1 () {
+    valForm();
+    valInputsEx();
+    valInputsReq();      
+    valLabels();
+    valSubmit();
+    valReset();
     if (validOk == 11) {
         var newP = document.createElement('p');
         var textP = document.createTextNode('Every validation has passed');
@@ -119,7 +134,6 @@ function Validations1() {
         valRes.appendChild(newP);
         valRes.style.border = "2px solid blue";
     }
-
     valRes.style.visibility ="visible";
 }
 

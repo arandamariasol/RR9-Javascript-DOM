@@ -48,6 +48,8 @@ function Validations1() {
         }
     }
 
+    
+
     // LABEL REQUERIDO
     var labels = document.getElementsByTagName('label');
 
