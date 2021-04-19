@@ -17,16 +17,28 @@ function Validations2 () {
         valRes.appendChild(new1);
         valRes.appendChild(new2);
         valRes.style.visibility ="visible";
-        getUsers();
+        putUsers();
     } else {
         console.log('NO pasó las validaciones de campos del formulario')
     }
 }
 
-async function getUsers () {
-    fetch(`https://jsonplaceholder.typicode.com/users?email=${submitObject.femail}`)
+async function putUsers () {
+    fetch('http://localhost:4000/register', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify ({
+            email: submitObject.femail,
+            passw:submitObject.pass,
+        })
+    })
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .catch(function(error){
+            console.log("Error trying to send the data")
+        })
 }
 
 // Email
