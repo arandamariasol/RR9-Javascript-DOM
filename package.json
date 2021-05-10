@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/arandamariasol/RR9-Javascript-DOM#readme",
   "dependencies": {
+    "@wdio/cli": "^7.5.7",
     "express": "^4.17.1"
   }
 }
