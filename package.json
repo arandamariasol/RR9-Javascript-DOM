@@ -1,0 +1,22 @@
+{
+  "name": "semana14",
+  "version": "1.0.0",
+  "description": "In this repository Functions, Events & DOM practice weekly practice is included.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arandamariasol/RR9-Javascript-DOM.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arandamariasol/RR9-Javascript-DOM/issues"
+  },
+  "homepage": "https://github.com/arandamariasol/RR9-Javascript-DOM#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

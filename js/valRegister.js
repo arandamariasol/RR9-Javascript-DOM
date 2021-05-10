@@ -42,7 +42,6 @@ async function postUsers () {
             fullname: submitObject.fname,
             email: submitObject.femail,
             passw:submitObject.pass,
-            rpassw:submitObject.rpass
         })
     })
         .then(response => response.json())
@@ -54,19 +53,19 @@ async function postUsers () {
 
 // Nombre
 var fname = document.getElementById("fname");
-var ename = document.getElementById("name-err");
-ename.style.display = 'none';
-fname.addEventListener('blur',name);
+var eFname = document.getElementById("name-err");
+eFname.style.display = 'none';
+fname.addEventListener('blur',Fullname);
 
-function name() {
+function Fullname() {
 
     if (fname.value.length > 6 && fname.value.indexOf(" ") != -1) {
         console.log('nombre valido');
-        submitObject.fullName = fname.value;
+        submitObject.fname = fname.value;
     } else {
         console.log('nombre invalido')
-        ename.textContent = 'Your full name must contain at least 6 characters and a space'
-        ename.style.display = 'block';
+        eFname.textContent = 'Your full name must contain at least 6 characters and a space'
+        eFname.style.display = 'block';
         fname.style.border= '2px solid red';
     }
 }
@@ -74,53 +73,53 @@ function name() {
 fname.addEventListener('focus',nameError);
 
 function nameError() {
-    ename.style.display = 'none';
+    eFname.style.display = 'none';
     fname.style.border= 'none';
 }
 
 // Email
 
-var femail = document.getElementById("email");
-var efemail = document.getElementById("email-err");
-efemail.style.display = 'none';
-femail.addEventListener('blur',Femail);
+var email = document.getElementById("email");
+var eEmail = document.getElementById("email-err");
+eEmail.style.display = 'none';
+email.addEventListener('blur',Femail);
 
 function Femail() {
     
-    if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(femail.value)){
+    if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(email.value)){
         console.log("email valido");
-        submitObject.femail = femail.value;
+        submitObject.email = email.value;
     } else {
         console.log("email invalido");
-        efemail.textContent = 'Invalid email format'
-        efemail.style.display = 'block';
-        femail.style.border= '2px solid red';
+        eEmail.textContent = 'Invalid email format'
+        eEmail.style.display = 'block';
+        email.style.border= '2px solid red';
     }
 }
 
-femail.addEventListener('focus',emailError);
+email.addEventListener('focus',emailError);
 
 function emailError() {
-    efemail.style.display = 'none';
-    femail.style.border = 'none';
+    eEmail.style.display = 'none';
+    email.style.border = 'none';
 }
 
 // Contraseña
 
 var pass = document.getElementById("pass");
-var epass = document.getElementById("pass-err");
-epass.style.display = 'none';
+var ePass = document.getElementById("pass-err");
+ePass.style.display = 'none';
 pass.addEventListener('blur',Pass);
 
 function Pass() {
     
     if (pass.value.length >= 8 && /(?=\w*\d)(?=\w*[a-z])/.test(pass.value)) {
         console.log('contraseña valida');
-        submitObject.Password = pass.value;
+        submitObject.pass = pass.value;
     } else {
         console.log('contraseña invalida');
-        epass.textContent = 'Your password must contain at least 8 characters and it must content letters and numbers'
-        epass.style.display = 'block';
+        ePass.textContent = 'Your password must contain at least 8 characters and it must content letters and numbers'
+        ePass.style.display = 'block';
         pass.style.border= '2px solid red';
     }
 }
@@ -128,26 +127,26 @@ function Pass() {
 pass.addEventListener('focus',passError);
 
 function passError() {
-    epass.style.display = 'none';
+    ePass.style.display = 'none';
     pass.style.border= 'none';
 }
 
 // Repetir contraseña
 
 var rpass = document.getElementById("rpass");
-var erpass = document.getElementById("rpass-err");
-erpass.style.display = 'none';
+var eRpass = document.getElementById("rpass-err");
+eRpass.style.display = 'none';
 rpass.addEventListener('blur',Rpass);
 
 function Rpass() {
     
         if (rpass.value === pass.value) {
         console.log('repetir contraseña valido');
-        submitObject.repPassword = rpass.value;
+        submitObject.rpass = rpass.value;
     } else {
         console.log('repetir contraseña invalido');
-        erpass.textContent = 'Passwords do not match'
-        erpass.style.display = 'block';
+        eRpass.textContent = 'Passwords do not match'
+        eRpass.style.display = 'block';
         rpass.style.border= '2px solid red';
     }
 }
@@ -155,7 +154,7 @@ function Rpass() {
 rpass.addEventListener('focus',rpassError);
 
 function rpassError() {
-    erpass.style.display = 'none';
+    eRpass.style.display = 'none';
     rpass.style.border= 'none';
 }
 
